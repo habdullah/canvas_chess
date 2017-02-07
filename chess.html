@@ -1,0 +1,61 @@
+<html>
+<head>
+	<title>chess</title>
+</head>
+<body>
+<canvas Id="myCanvas" width="500" height="500" ></canvas>
+
+<style type="text/css">
+body { background-color: #333; font: 30px sans-serif; }
+canvas { margin: auto 0;background:white; }
+</style>
+
+<script type="text/javascript">
+x = 5;
+y = 5;
+blksize=70;
+var canvas = document.getElementById('myCanvas');
+var context = canvas.getContext('2d'); 
+var c = 'white';
+
+
+var render = function (x,y){
+
+	if (c=='white'){
+		c= '#ea9642';
+	}
+	else{
+		c='white';
+	}
+
+	context.fillStyle = c;
+	context.fillRect(x, y, blksize, blksize);
+	console.log(c);
+	//context.fill();
+	context.stroke();
+	context.lineWidth = 1;
+}
+
+
+
+	currx=x;
+	curry=y;
+for (i = 0; i<49 ; i++){
+
+	render(currx,curry);
+	currx+=blksize;
+	if(x==currx-7*blksize){
+		curry+=blksize;
+		currx=x;
+	}
+
+}
+	
+	//context.fillStyle = 'black';
+	context.rect(x-1, y-1, (blksize*7)+2, (blksize*7)+2);
+	context.stroke();
+	context.lineWidth = 1;
+
+</script>
+</body>
+</html>
