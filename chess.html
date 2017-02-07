@@ -1,9 +1,10 @@
-<html>
+	<html>
 <head>
 	<title>chess</title>
 </head>
 <body>
-<canvas Id="myCanvas" width="500" height="500" ></canvas>
+<canvas Id="myCanvas" width="570" height="570" ></canvas>
+
 
 <style type="text/css">
 body { background-color: #333; font: 30px sans-serif; }
@@ -11,50 +12,208 @@ canvas { margin: auto 0;background:white; }
 </style>
 
 <script type="text/javascript">
+
 x = 5;
 y = 5;
 blksize=70;
+cnt=0;
+
 var canvas = document.getElementById('myCanvas');
 var context = canvas.getContext('2d'); 
 var c = 'white';
 
+var load = function(context,src,x,y){
+
+	var imageObj = new Image();
+	imageObj.onload = function() {
+	context.drawImage(imageObj, x, y,72,72);
+	};
+	imageObj.src = src;}
+		
 
 var render = function (x,y){
-
-	if (c=='white'){
-		c= '#ea9642';
+	if (cnt%8!=0 && cnt!=0){
+		if (c=='white'){
+			c= '#ea9642';
+		}
+		else{
+			c='white';
+		}
 	}
-	else{
-		c='white';
-	}
-
+	cnt++;
 	context.fillStyle = c;
 	context.fillRect(x, y, blksize, blksize);
-	console.log(c);
-	//context.fill();
 	context.stroke();
-	context.lineWidth = 1;
-}
+	context.lineWidth = 1;}
 
 
 
 	currx=x;
 	curry=y;
-for (i = 0; i<49 ; i++){
+
+for (i = 0; i<64 ; i++){
 
 	render(currx,curry);
+	//load(context,currx,curry)
 	currx+=blksize;
-	if(x==currx-7*blksize){
+	if(x==currx-8*blksize){
 		curry+=blksize;
 		currx=x;
-	}
+	}}
 
-}
+		load(context,'br.png',blksize*0+x,y);
+		load(context,'bkn.png',blksize*1+x,y);
+		load(context,'bb.png',blksize*2+x,y);
+		load(context,'bq.png',blksize*3+x,y);
+		load(context,'bk.png',blksize*4+x,y);
+		load(context,'bb.png',blksize*5+x,y);
+		load(context,'bkn.png',blksize*6+x,y);
+		load(context,'br.png',blksize*7+x,y);
+		load(context,'bp.png',x,blksize*1+y);
+		load(context,'bp.png',blksize*1+x,blksize*1+y);
+		load(context,'bp.png',blksize*2+x,blksize*1+y);
+		load(context,'bp.png',blksize*3+x,blksize*1+y);
+		load(context,'bp.png',blksize*4+x,blksize*1+y);
+		load(context,'bp.png',blksize*5+x,blksize*1+y);
+		load(context,'bp.png',blksize*6+x,blksize*1+y);
+		load(context,'bp.png',blksize*7+x,blksize*1+y);
+		load(context,'wp.png',blksize*0+x,blksize*6+y);
+		load(context,'wp.png',blksize*1+x,blksize*6+y);
+		load(context,'wp.png',blksize*2+x,blksize*6+y);
+		load(context,'wp.png',blksize*3+x,blksize*6+y);
+		load(context,'wp.png',blksize*4+x,blksize*6+y);
+		load(context,'wp.png',blksize*5+x,blksize*6+y);
+		load(context,'wp.png',blksize*6+x,blksize*6+y);
+		load(context,'wp.png',blksize*7+x,blksize*6+y);
+		load(context,'wr.png',blksize*0+x,blksize*7+y);
+		load(context,'wkn.png',blksize*1+x,blksize*7+y);
+		load(context,'wb.png',blksize*2+x,blksize*7+y);
+		load(context,'wq.png',blksize*3+x,blksize*7+y);
+		load(context,'wk.png',blksize*4+x,blksize*7+y);
+		load(context,'wb.png',blksize*5+x,blksize*7+y);
+		load(context,'wkn.png',blksize*6+x,blksize*7+y);
+		load(context,'wr.png',blksize*7+x,blksize*7+y);
+// 		break;
+
+		
+// for (i = 0;i<64; i++){
+// 	switch (i){
+// 		case 0:
+// 		break;
+
+// 		case 1:
+// 		break;
+
+// 		case 2:
+// 		break;
+
+// 		case 3:
+// 		break;
+
+// 		case 4:
+// 		break;
+
+// 		case 5:
+// 		break;
+
+// 		case 6:
+// 		break;
+
+// 		case 7:
+// 		break;
+
+// 		case 8:
+// 		break;
+
+
+// 		case 9:
+// 		break;
+
+
+// 		case 10:
+// 		break;
+
+
+// 		case 11:
+// 		break;
+
+
+// 		case 12:
+// 		break;
+
+
+// 		case 13:
+// 		break;
+
+
+// 		case 14:
+// 		break;
+
+
+// 		case 15:
+// 		break;
+
+
+// 		case 48:
+// 		break;
+
+// 		case 49:
+// 		break;
+
+// 		case 50:
+// 		break;
+
+// 		case 51:
+// 		break;
+
+// 		case 52:
+// 		break;
+
+// 		case 53:
+// 		break;
+
+// 		case 54:
+// 		break;
+		
+// 		case 55:
+// 		break;
+
+
+// 		case 56:
+
+// 		case 57:
+// 		break;
+
+// 		case 58:
+// 		break;
+
+// 		case 59:
+// 		break;
+
+// 		case 60:
+// 		break;
+
+// 		case 61:
+// 		break;
+
+// 		case 62:
+// 		break;
+		
+// 		case 63:
+// 		break;
+
 	
-	//context.fillStyle = 'black';
-	context.rect(x-1, y-1, (blksize*7)+2, (blksize*7)+2);
+// 	}
+// }
+
+
+	
+	context.fillStyle = 'black';
+	context.rect(x-1, y-1, (blksize*8)+2, (blksize*8)+2);
 	context.stroke();
 	context.lineWidth = 1;
+
+
 
 </script>
 </body>
